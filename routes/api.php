@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::get('bar', function () {
+    return 'bar';
+});
+
 Route::group([
     'namespace' => 'Api',
     'middleware' => 'auth:api',
@@ -30,7 +34,10 @@ Route::group([
 Route::group([
     'namespace' => 'Api',
 ], function () {
+    Route::get('foos', function () {
+        return 'foo';
+    });
     Route::get('login', function () {
-        return true;
+        return 'login';
     });
 });
